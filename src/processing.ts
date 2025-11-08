@@ -3,9 +3,10 @@ import type { DirectedGraph } from "graphology";
 /**
  * Generic processing context that can be extended with any additional data
  */
-export type ProcessingContext<TGraph = any> = {
+export type ProcessingContext<TGraph extends DirectedGraph = DirectedGraph> = {
   graph: TGraph;
   mappings?: Record<string, Record<string, number | string>>;
+  // deno-lint-ignore no-explicit-any
   [key: string]: any;
 };
 
@@ -13,8 +14,8 @@ export type ProcessingContext<TGraph = any> = {
  * A processor function that transforms input data using a context
  */
 export type Processor<
-  TInput = any,
-  TOutput = any,
+  TInput = unknown,
+  TOutput = unknown,
   TContext = ProcessingContext,
 > = (
   input: TInput,
@@ -27,6 +28,7 @@ export type Processor<
 export class ProcessingPipeline<
   TContext extends ProcessingContext = ProcessingContext,
 > {
+  // deno-lint-ignore no-explicit-any
   private processors: Processor<any, any, TContext>[] = [];
 
   constructor(private context: TContext) {}
@@ -45,6 +47,7 @@ export class ProcessingPipeline<
   execute<TInput, TOutput>(input: TInput): TOutput {
     return this.processors.reduce(
       (data, processor) => processor(data, this.context),
+      // deno-lint-ignore no-explicit-any
       input as any,
     ) as TOutput;
   }
@@ -75,15 +78,17 @@ export class ProcessingPipeline<
 /**
  * Helper type for graph node with attributes
  */
-export type NodeWithAttributes<T = any> = {
+export type NodeWithAttributes = {
   id: string;
-  [key: string]: T;
+  // deno-lint-ignore no-explicit-any
+  [key: string]: any;
 };
 
 /**
  * Helper to create a processor that filters graph nodes
  */
 export function createNodeFilter<TContext extends ProcessingContext>(
+  // deno-lint-ignore no-explicit-any
   predicate: (node: string, attributes: any) => boolean,
 ): Processor<void, string[], TContext> {
   return (_input, context) => {
@@ -192,6 +197,7 @@ export function createEdgeAttributeUpdater<TContext extends ProcessingContext>(
   sourceNode: string | ((context: TContext) => string),
   targetNode: string | ((context: TContext) => string),
   attribute: string,
+  // deno-lint-ignore no-explicit-any
   updateFn: (currentValue: any, context: TContext) => any,
 ): Processor<void, void, TContext> {
   return (_input, context) => {
@@ -206,6 +212,7 @@ export function createEdgeAttributeUpdater<TContext extends ProcessingContext>(
       source,
       target,
       attribute,
+      // deno-lint-ignore no-explicit-any
       (value: any) => updateFn(value, context),
     );
   };
@@ -217,6 +224,7 @@ export function createEdgeAttributeUpdater<TContext extends ProcessingContext>(
 export function createNodeAttributeUpdater<TContext extends ProcessingContext>(
   nodeId: string | ((context: TContext) => string),
   attribute: string,
+  // deno-lint-ignore no-explicit-any
   updateFn: (currentValue: any, context: TContext) => any,
 ): Processor<void, void, TContext> {
   return (_input, context) => {
@@ -225,6 +233,7 @@ export function createNodeAttributeUpdater<TContext extends ProcessingContext>(
     context.graph.updateNodeAttribute(
       node,
       attribute,
+      // deno-lint-ignore no-explicit-any
       (value: any) => updateFn(value, context),
     );
   };
@@ -239,6 +248,7 @@ export function createNodeTransformer<
 >(
   transformFn: (
     nodeId: string,
+    // deno-lint-ignore no-explicit-any
     attributes: any,
     connectedNodes: Record<string, NodeWithAttributes[]>,
     context: TContext,
@@ -329,6 +339,7 @@ export function getEdgeAmounts<TGraph extends DirectedGraph>(
  * Create a batch processor that processes nodes in groups
  */
 export function createBatchProcessor<TContext extends ProcessingContext>(
+  // deno-lint-ignore no-explicit-any
   nodeFilter: (node: string, attributes: any) => boolean,
   processFn: (nodeId: string, context: TContext) => void,
 ): Processor<void, void, TContext> {
@@ -358,7 +369,8 @@ export function createConditionalProcessor<
     } else if (elseProcessor) {
       return elseProcessor(input, context);
     }
-    return input as any;
+    // deno-lint-ignore no-explicit-any
+    return input as any as TOutput;
   };
 }
 
@@ -370,7 +382,9 @@ export function createParallelProcessor<
   TOutput,
   TContext extends ProcessingContext,
 >(
+  // deno-lint-ignore no-explicit-any
   processors: Processor<TInput, any, TContext>[],
+  // deno-lint-ignore no-explicit-any
   combineFn: (results: any[]) => TOutput,
 ): Processor<TInput, TOutput, TContext> {
   return (input, context) => {

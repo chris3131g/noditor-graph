@@ -1,5 +1,5 @@
-import { DirectedGraph } from "graphology";
-import { GraphOutput } from "./types.ts";
+import type { DirectedGraph } from "graphology";
+import type { GraphOutput } from "./types.ts";
 
 /**
  * Export a graph to D3.js format

@@ -1,7 +1,7 @@
 // deno run --allow-write example/basic_processing_sword.ts
 import { graphologyToD3, graphologyToMD } from "../src/mod.ts";
 import { graph } from "./sword.shared.ts";
-import { EdgeAttributes, Item, NodeAttributes } from "./sword.type.ts";
+import type { EdgeAttributes, Item, NodeAttributes } from "./sword.type.ts";
 
 const items = graph.filterNodes((_node, attributes) =>
   attributes.type === "item"

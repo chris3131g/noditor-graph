@@ -1,6 +1,6 @@
-import { DirectedGraph } from "graphology";
+import type { DirectedGraph } from "graphology";
 import { graphologyToD3, graphologyToMD } from "../src/export.ts";
-import { EdgeAttributes, Item, NodeAttributes } from "./sword.type.ts";
+import type { EdgeAttributes, Item, NodeAttributes } from "./sword.type.ts";
 
 export function exportAll(graph: DirectedGraph) {
   const output = graphologyToD3(graph);

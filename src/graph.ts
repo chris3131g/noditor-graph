@@ -1,5 +1,5 @@
 import { DirectedGraph } from "graphology";
-import { EdgeAttributes, NodeAttributes } from "./types.ts";
+import type { EdgeAttributes, NodeAttributes } from "./types.ts";
 
 export function createGraph<
   T extends NodeAttributes,

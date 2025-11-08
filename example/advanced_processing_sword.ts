@@ -6,9 +6,9 @@ import {
   type ProcessingContext,
   ProcessingPipeline,
 } from "../src/mod.ts";
-import { EdgeAttributes } from "../src/types.ts";
+import type { EdgeAttributes } from "../src/types.ts";
 import { graph } from "./sword.shared.ts";
-import { Item, ItemNodeAttributes } from "./sword.type.ts";
+import type { Item, ItemNodeAttributes } from "./sword.type.ts";
 
 // ========================================
 // Using the Processing System

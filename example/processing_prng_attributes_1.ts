@@ -10,7 +10,7 @@ import {
   generate_float,
   initialize_prng,
   type Xorshift32,
-} from "jsr:@studiowebux/xorshift32";
+} from "@studiowebux/xorshift32";
 import { graph } from "./sword.shared.ts";
 import { exportAll } from "./export.shared.ts";
 

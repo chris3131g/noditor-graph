@@ -7,6 +7,7 @@
     "exclude": [".github/", "example/", "html/"]
   },
   "imports": {
-    "graphology": "npm:graphology@0.26.0"
+    "graphology": "npm:graphology@0.26.0",
+    "@studiowebux/xorshift32": "jsr:@studiowebux/xorshift32@^0.1.1"
   }
 }

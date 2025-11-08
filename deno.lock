@@ -1,7 +1,7 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@studiowebux/xorshift32@*": "0.1.1",
+    "jsr:@studiowebux/xorshift32@~0.1.1": "0.1.1",
     "npm:graphology@0.26.0": "0.26.0_graphology-types@0.24.8"
   },
   "jsr": {
@@ -26,6 +26,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@studiowebux/xorshift32@~0.1.1",
       "npm:graphology@0.26.0"
     ]
   }
