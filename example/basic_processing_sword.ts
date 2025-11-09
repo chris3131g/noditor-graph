@@ -1,5 +1,9 @@
 // deno run --allow-write example/basic_processing_sword.ts
-import { graphologyToD3, graphologyToMD } from "../src/mod.ts";
+import {
+  graphologyToD3,
+  graphologyToJSON,
+  graphologyToMD,
+} from "../src/mod.ts";
 import { graph } from "./sword.shared.ts";
 import type { EdgeAttributes, Item, NodeAttributes } from "./sword.type.ts";
 
@@ -136,5 +140,72 @@ ${attributes}`
     } else if (targetNode.type === "attribute") {
       data.attributes[targetNode.id] = link.amount || 0;
     }
+  },
+});
+
+graphologyToJSON({
+  rows: output,
+  generateJSON: (data) => {
+    const { nodes, links } = data;
+
+    // Create lookup maps for efficient access
+    const nodeMap = new Map(nodes.map((node) => [node.id, node]));
+
+    // Group nodes by type
+    const groupedNodes = nodes.reduce<Record<string, NodeAttributes[]>>(
+      (groups, node) => {
+        if (!groups[node.type]) {
+          groups[node.type] = [];
+        }
+        groups[node.type].push(node);
+        return groups;
+      },
+      {},
+    );
+
+    // Process links and enrich nodes with relationships
+    for (const link of links) {
+      const targetNode = nodeMap.get(link.target);
+      const sourceNode = nodeMap.get(link.source);
+
+      if (!targetNode || !sourceNode) continue;
+
+      const nodeToUpdate = groupedNodes[sourceNode.type]?.find((n) =>
+        n.id === sourceNode.id
+      );
+      if (!nodeToUpdate) continue;
+
+      const linkValue = link.amount ?? null;
+
+      switch (targetNode.type) {
+        case "set":
+          nodeToUpdate.set = { id: targetNode.id, label: targetNode.name };
+          break;
+        case "slot":
+          nodeToUpdate.slot = { id: targetNode.id, label: targetNode.name };
+          break;
+        case "tier":
+          nodeToUpdate.tier = { id: targetNode.id, label: targetNode.name };
+          break;
+        case "attribute":
+          if (!nodeToUpdate.attributes) {
+            nodeToUpdate.attributes = {};
+          }
+          nodeToUpdate.attributes[targetNode.id] = linkValue;
+          break;
+      }
+    }
+
+    // Save grouped data to JSON files
+    const jsonDir = `${import.meta.dirname}/json`;
+    Deno.mkdirSync(jsonDir, { recursive: true });
+
+    for (const [type, typeNodes] of Object.entries(groupedNodes)) {
+      const filename = `${jsonDir}/${type}.json`;
+      Deno.writeTextFileSync(filename, JSON.stringify(typeNodes, null, 2));
+      console.log(`Saved ${typeNodes.length} ${type} nodes to ${filename}`);
+    }
+
+    return groupedNodes;
   },
 });

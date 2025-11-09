@@ -91,3 +91,25 @@ export function graphologyToMD<
 
   return generateMarkdown(items);
 }
+
+/**
+ * Export graph to JSON format with all nodes and edges
+ * @param rows - The graph data with nodes and links
+ * @param generateJSON - Function to generate and handle the JSON output
+ * @returns Result from generateJSON callback
+ */
+export function graphologyToJSON<
+  TGraph extends {
+    nodes: Array<{ id: string } & Record<string, unknown>>;
+    links: Array<{ source: string; target: string } & Record<string, unknown>>;
+  },
+  TReturn = void,
+>({
+  rows,
+  generateJSON,
+}: {
+  rows: TGraph;
+  generateJSON: (data: TGraph) => TReturn;
+}): TReturn {
+  return generateJSON(rows);
+}
